@@ -2,7 +2,7 @@
 
 namespace Controller\form_viewer;
 
-use Repository\FormViewerSettingsRepo;
+use Service\FormViewerService;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -36,8 +36,10 @@ class FormViewerController
      */
     public function menu(): void
     {
+        $formViewerSettings = FormViewerService::checkAccess();
+
         TWIG->render('form_viewer/menu.twig', [
-            'admin_access' => true,
+            'adminAccess' => $formViewerSettings->_hasAccess('admin_access', $_SESSION['user']['id']),
         ]);
     }
 }

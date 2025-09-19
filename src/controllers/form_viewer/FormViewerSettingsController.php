@@ -4,7 +4,6 @@ namespace Controller\form_viewer;
 
 use JetBrains\PhpStorm\NoReturn;
 use Repository\FormsRepo;
-use Repository\FormViewerSettingsRepo;
 use Repository\UsersRepo;
 use Service\FormViewerService;
 use Twig\Error\LoaderError;

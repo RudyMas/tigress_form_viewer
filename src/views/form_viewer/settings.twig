@@ -1,4 +1,20 @@
 {% extends 'datatable.twig' %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        let variables = {
+            tab: '{{ _GET.tab }}',
+            access: '{{ rights.access }}',
+            write: '{{ rights.write }}',
+            read: '{{ rights.read }}',
+            delete: '{{ rights.delete }}',
+        }
+        let language = {
+            translations: {{ translations|json_encode|raw }},
+        }
+    </script>
+    <script src="{{ BASE_URL }}/vendor/tigress/form-viewer/public/javascript/form_viewer/settings.js"></script>
+{% endblock %}
 {% block title %}{{ __('Forms') }} - {{ __('Settings') }}{% endblock %}
 {% block breadcrumb %}
     <div class="row mb-2">
