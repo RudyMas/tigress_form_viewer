@@ -1,0 +1,29 @@
+{
+  "name": "tigress/form-viewer",
+  "description": "Tigress Form Viewer library for Form Builder module",
+  "type": "library",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Rudy Mas",
+      "email": "rudy.mas@rudymas.be",
+      "homepage": "https://rudymas.be",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=8.4",
+  },
+  "require-dev": {
+    "tigress/core": "^2025",
+    "tigress/form-builder": "^2025"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tigress\\": "src/",
+      "Controller\\": "src/controllers/",
+      "Repository\\": "src/repositories/"
+    }
+  }
+}

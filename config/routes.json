@@ -1,0 +1,128 @@
+{
+  "routes": [
+    {
+      "request": "GET",
+      "path": "/form/closed",
+      "controller": "forms\\FormController",
+      "method": "closed"
+    },
+    {
+      "request": "GET",
+      "path": "/form/success",
+      "controller": "forms\\FormController",
+      "method": "success"
+    },
+    {
+      "request": "GET",
+      "path": "/form/{form_reference}",
+      "controller": "forms\\FormController",
+      "method": "index"
+    },
+    {
+      "request": "POST",
+      "path": "/form/{form_reference}",
+      "controller": "forms\\FormCrudController",
+      "method": "saveForm"
+    },
+    {
+      "request": "GET",
+      "path": "/forms",
+      "controller": "forms\\FormsController",
+      "method": "index",
+      "level_rights": [
+        95
+      ],
+      "special_rights": "forms"
+    },
+    {
+      "request": "POST",
+      "path": "/forms/add/section/{form_id}",
+      "controller": "forms\\FormsCrudController",
+      "method": "addSection"
+    },
+    {
+      "request": "POST",
+      "path": "/forms/add/question/{form_id}/{forms_section_id}",
+      "controller": "forms\\FormsCrudController",
+      "method": "addQuestion"
+    },
+    {
+      "request": "GET",
+      "path": "/forms/delete/section/{form_id}/{forms_section_id}",
+      "controller": "forms\\FormsCrudController",
+      "method": "deleteSection"
+    },
+    {
+      "request": "POST",
+      "path": "/forms/delete",
+      "controller": "forms\\FormsCrudController",
+      "method": "deleteForm"
+    },
+    {
+      "request": "GET",
+      "path": "/forms/delete/question/{form_id}/{forms_question_id}",
+      "controller": "forms\\FormsCrudController",
+      "method": "deleteQuestion"
+    },
+    {
+      "request": "GET",
+      "path": "/forms/edit/{id}",
+      "controller": "forms\\FormsController",
+      "method": "edit"
+    },
+    {
+      "request": "GET",
+      "path": "/forms/get/{show}",
+      "controller": "forms\\FormsCrudController",
+      "method": "getAll"
+    },
+    {
+      "request": "GET",
+      "path": "/forms/questions/{id}",
+      "controller": "forms\\FormsController",
+      "method": "editQuestions"
+    },
+    {
+      "request": "POST",
+      "path": "/forms/questions/{id}",
+      "controller": "forms\\FormsCrudController",
+      "method": "saveQuestions"
+    },
+    {
+      "request": "GET",
+      "path": "/forms/qr/{id}",
+      "controller": "forms\\FormsController",
+      "method": "showQr"
+    },
+    {
+      "request": "POST",
+      "path": "/forms/restore",
+      "controller": "forms\\FormsCrudController",
+      "method": "restoreForm"
+    },
+    {
+      "request": "POST",
+      "path": "/forms/save",
+      "controller": "forms\\FormsCrudController",
+      "method": "saveForm"
+    },
+    {
+      "request": "GET",
+      "path": "/forms/{id}/answers",
+      "controller": "forms\\FormsController",
+      "method": "answersIndex"
+    },
+    {
+      "request": "GET",
+      "path": "/forms/{id}/answers/get",
+      "controller": "forms\\FormsCrudController",
+      "method": "getAnswersFromForm"
+    },
+    {
+      "request": "GET",
+      "path": "/forms/{id}/answers/view/{uniq_code}",
+      "controller": "forms\\FormsController",
+      "method": "showAnswersFromForm"
+    }
+  ]
+}
