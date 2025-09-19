@@ -1,0 +1,97 @@
+<div class="row">
+    <div class="col-sm-12">
+        <fieldset>
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <div class="row mb-2">
+                        <div class="col-sm-8">
+                            <p><b>{{ __('Following people have access to the listed forms') }}:</b></p>
+                        </div>
+                        <div class="col-sm-4 text-end">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#ModalAddFormAccess"><i
+                                        class="fa-solid fa-plus"></i> {{ __('Add') }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-12 table-responsive">
+                            <table id="datatableFormAccess" class="table table-striped table-bordered"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+{# Modal Adding Form Access #}
+<form action="{{ BASE_URL }}/form-viewer/settings/add/form-access" method="post" enctype="multipart/form-data">
+    <div class="modal fade" id="ModalAddFormAccess" tabindex="-1" aria-labelledby="ModalAddFormAccessLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalAddFormAccessLabel">{{ __('Adding form access for user') }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="{{ __('Close') }}"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-2">
+                        <div class="container col-md-12">
+                            <label for="user_id"><b>{{ __('User') }}:</b></label>
+                            <select class="form-control" name="user_id" id="user_id">
+                                <option value="">{{ __('Select a user') }}</option>
+                                {% for user in allUsers %}
+                                    <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}
+                                        ({{ user.id }})
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="container col-md-12">
+                            <label for="form_id"><b>{{ __('Form') }}:</b></label>
+                            <select class="form-control" name="form_id" id="form_id">
+                                <option value="">{{ __('Select a form') }}</option>
+                                {% for form in allForms %}
+                                    <option value="{{ form.id }}">{{ form.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button name="NewFormAccess" value="1" type="submit"
+                            class="btn btn-success">{{ __('Save') }}</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ __('Cancel') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{# Modal Remove Form Access #}
+<form action="{{ BASE_URL }}/form-viewer/settings/remove/form-access" method="post" enctype="multipart/form-data">
+    <div class="modal fade" id="ModalRemoveFormAccess" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">{{ __('Removing form access for user') }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="{{ __('Close') }}"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalContent">{{ __('Are you sure you want to remove the form access for this user?') }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="RemoveFormAccess" name="RemoveFormAccess" value="" type="submit"
+                            class="btn btn-success">{{ __('Yes') }}
+                    </button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ __('No') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

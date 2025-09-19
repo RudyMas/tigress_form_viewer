@@ -1,14 +1,62 @@
 {
   "nl": {
+    "Access to forms": "Toegang tot formulieren",
+    "Adding form access for user": "Formulier toegang toevoegen voor gebruiker",
+    "Are you sure you want to remove the form access for this user?": "Weet je zeker dat je de formulier toegang voor deze gebruiker wilt verwijderen?",
+    "Following people have access to the listed forms": "De volgende personen hebben toegang tot de vermelde formulieren",
+    "No forms available": "Geen formulieren beschikbaar",
+    "Removing form access for user": "Formulier toegang verwijderen voor gebruiker",
+    "Select a form": "Selecteer een formulier",
+    "You do not have access to any forms.": "Je hebt geen toegang tot formulieren."
   },
   "fr": {
+    "Access to forms": "Accès aux formulaires",
+    "Adding form access for user": "Ajout d'un accès aux formulaires pour l'utilisateur",
+    "Are you sure you want to remove the form access for this user?": "Êtes-vous sûr de vouloir supprimer l'accès aux formulaires pour cet utilisateur?",
+    "Following people have access to the listed forms": "Les personnes suivantes ont accès aux formulaires listés",
+    "No forms available": "Aucun formulaire disponible",
+    "Removing form access for user": "Suppression de l'accès aux formulaires pour l'utilisateur",
+    "Select a form": "Sélectionner un formulaire",
+    "You do not have access to any forms.": "Vous n'avez accès à aucun formulaire."
   },
   "de": {
+    "Access to forms": "Zugriff auf Formulare",
+    "Adding form access for user": "Formularzugriff für Benutzer hinzufügen",
+    "Are you sure you want to remove the form access for this user?": "Sind Sie sicher, dass Sie den Formularzugriff für diesen Benutzer entfernen möchten?",
+    "Following people have access to the listed forms": "Die folgenden Personen haben Zugriff auf die aufgeführten Formulare",
+    "No forms available": "Keine Formulare verfügbar",
+    "Removing form access for user": "Formularzugriff für Benutzer entfernen",
+    "Select a form": "Wählen Sie ein Formular",
+    "You do not have access to any forms.": "Sie haben keinen Zugriff auf Formulare."
   },
   "es": {
+    "Access to forms": "Acceso a formularios",
+    "Adding form access for user": "Agregando acceso a formularios para el usuario",
+    "Are you sure you want to remove the form access for this user?": "¿Estás seguro de que deseas eliminar el acceso a formularios para este usuario?",
+    "Following people have access to the listed forms": "Las siguientes personas tienen acceso a los formularios listados",
+    "No forms available": "No hay formularios disponibles",
+    "Removing form access for user": "Eliminando acceso a formularios para el usuario",
+    "Select a form": "Selecciona un formulario",
+    "You do not have access to any forms.": "No tienes acceso a ningún formulario."
   },
   "it": {
+    "Access to forms": "Accesso ai moduli",
+    "Adding form access for user": "Aggiunta accesso ai moduli per l'utente",
+    "Are you sure you want to remove the form access for this user?": "Sei sicuro di voler rimuovere l'accesso ai moduli per questo utente?",
+    "Following people have access to the listed forms": "Le seguenti persone hanno accesso ai moduli elencati",
+    "No forms available": "Nessun modulo disponibile",
+    "Removing form access for user": "Rimozione accesso ai moduli per l'utente",
+    "Select a form": "Seleziona un modulo",
+    "You do not have access to any forms.": "Non hai accesso a nessun modulo."
   },
   "sv": {
+    "Access to forms": "Åtkomst till formulär",
+    "Adding form access for user": "Lägger till formuläråtkomst för användare",
+    "Are you sure you want to remove the form access for this user?": "Är du säker på att du vill ta bort formuläråtkomsten för denna användare?",
+    "Following people have access to the listed forms": "Följande personer har åtkomst till de listade formulären",
+    "No forms available": "Inga formulär tillgängliga",
+    "Removing form access for user": "Tar bort formuläråtkomst för användare",
+    "Select a form": "Välj ett formulär",
+    "You do not have access to any forms.": "Du har inte åtkomst till några formulär."
   }
 }

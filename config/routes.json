@@ -2,16 +2,41 @@
   "routes": [
     {
       "request": "GET",
-      "path": "/forms/view",
-      "controller": "forms\\FormViewerController",
-      "method": "index",
+      "path": "/form-viewer",
+      "controller": "form_viewer\\FormViewerController",
+      "method": "menu",
       "level_rights": [
         10,
         20,
         90,
         95
       ],
-      "special_rights": "form-viewer"
+      "special_rights": "form-viewer",
+      "special_rights_default": []
+    },
+    {
+      "request": "GET",
+      "path": "/form-viewer/settings",
+      "controller": "form_viewer\\FormViewerSettingsController",
+      "method": "settings"
+    },
+    {
+      "request": "POST",
+      "path": "/form-viewer/settings/add/user-access",
+      "controller": "form_viewer\\FormViewerSettingsController",
+      "method": "addUserAccess"
+    },
+    {
+      "request": "POST",
+      "path": "/form-viewer/settings/remove/user-access",
+      "controller": "form_viewer\\FormViewerSettingsController",
+      "method": "removeUserAccess"
+    },
+    {
+      "request": "GET",
+      "path": "/form-viewer/{group_name}",
+      "controller": "form_viewer\\FormViewerController",
+      "method": "index"
     }
   ]
 }

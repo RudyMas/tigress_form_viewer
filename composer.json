@@ -17,13 +17,15 @@
   },
   "require-dev": {
     "tigress/core": "^2025",
-    "tigress/form-builder": "^2025"
+    "tigress/form-builder": "^2025",
+    "tigress/users": "^2025"
   },
   "autoload": {
     "psr-4": {
       "Tigress\\": "src/",
       "Controller\\": "src/controllers/",
-      "Repository\\": "src/repositories/"
+      "Repository\\": "src/repositories/",
+      "Service\\": "src/services/"
     }
   }
 }

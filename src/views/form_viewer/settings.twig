@@ -1,0 +1,50 @@
+{% extends 'datatable.twig' %}
+{% block title %}{{ __('Forms') }} - {{ __('Settings') }}{% endblock %}
+{% block breadcrumb %}
+    <div class="row mb-2">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb" data-bs-theme="{{ WEBSITE.mode }}">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ BASE_URL }}/"><i class="fa fa-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ BASE_URL }}/form-viewer">{{ __('Forms') }}</a></li>
+                    <li class="breadcrumb-item active">{{ __('Settings') }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h3>{{ __('Forms') }} - {{ __('Settings') }}</h3>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <fieldset class="mt-2">
+                    <div id="menu">
+                        <!-- Tab navigation -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link {% if _GET.tab == '' %}active{% endif %}" id="settings-tab"
+                                   href="{{ BASE_URL }}/form-viewer/settings" role="tab">{{ __('Access to settings') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if _GET.tab == 'forms' %}active{% endif %}" id="settings-tab"
+                                   href="{{ BASE_URL }}/form-viewer/settings?tab=forms" role="tab">{{ __('Access to forms') }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="content">
+                        {% if _GET.tab == '' %}
+                            {% include 'form_viewer/settings_access.twig' %}
+                        {% elseif _GET.tab == 'forms' %}
+                            {% include 'form_viewer/settings_forms.twig' %}
+                        {% endif %}
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+{% endblock %}
