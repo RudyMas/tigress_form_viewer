@@ -4,10 +4,14 @@
     "Adding form access for user": "Formulier toegang toevoegen voor gebruiker",
     "Are you sure you want to remove the form access for this user?": "Weet je zeker dat je de formulier toegang voor deze gebruiker wilt verwijderen?",
     "Following people have access to the listed forms": "De volgende personen hebben toegang tot de vermelde formulieren",
+    "Form access added successfully.": "Formulier toegang succesvol toegevoegd.",
+    "Form access removed successfully.": "Formulier toegang succesvol verwijderd.",
     "Form name": "Formulier naam",
+    "Invalid user ID or form ID.": "Ongeldige gebruikers-ID of formulier-ID.",
     "No forms available": "Geen formulieren beschikbaar",
     "Removing form access for user": "Formulier toegang verwijderen voor gebruiker",
     "Select a form": "Selecteer een formulier",
+    "User already has access to this form.": "Gebruiker heeft al toegang tot dit formulier.",
     "You do not have access to any forms.": "Je hebt geen toegang tot formulieren."
   },
   "fr": {
@@ -15,10 +19,14 @@
     "Adding form access for user": "Ajout d'un accès aux formulaires pour l'utilisateur",
     "Are you sure you want to remove the form access for this user?": "Êtes-vous sûr de vouloir supprimer l'accès aux formulaires pour cet utilisateur?",
     "Following people have access to the listed forms": "Les personnes suivantes ont accès aux formulaires listés",
+    "Form access added successfully.": "Accès au formulaire ajouté avec succès.",
+    "Form access removed successfully.": "Accès au formulaire supprimé avec succès.",
     "Form name": "Nom du formulaire",
+    "Invalid user ID or form ID.": "ID utilisateur ou ID formulaire invalide.",
     "No forms available": "Aucun formulaire disponible",
     "Removing form access for user": "Suppression de l'accès aux formulaires pour l'utilisateur",
     "Select a form": "Sélectionner un formulaire",
+    "User already has access to this form.": "L'utilisateur a déjà accès à ce formulaire.",
     "You do not have access to any forms.": "Vous n'avez accès à aucun formulaire."
   },
   "de": {
@@ -26,10 +34,14 @@
     "Adding form access for user": "Formularzugriff für Benutzer hinzufügen",
     "Are you sure you want to remove the form access for this user?": "Sind Sie sicher, dass Sie den Formularzugriff für diesen Benutzer entfernen möchten?",
     "Following people have access to the listed forms": "Die folgenden Personen haben Zugriff auf die aufgeführten Formulare",
+    "Form access added successfully.": "Formularzugriff erfolgreich hinzugefügt.",
+    "Form access removed successfully.": "Formularzugriff erfolgreich entfernt.",
     "Form name": "Formularname",
+    "Invalid user ID or form ID.": "Ungültige Benutzer-ID oder Formular-ID.",
     "No forms available": "Keine Formulare verfügbar",
     "Removing form access for user": "Formularzugriff für Benutzer entfernen",
     "Select a form": "Wählen Sie ein Formular",
+    "User already has access to this form.": "Der Benutzer hat bereits Zugriff auf dieses Formular.",
     "You do not have access to any forms.": "Sie haben keinen Zugriff auf Formulare."
   },
   "es": {
@@ -37,10 +49,14 @@
     "Adding form access for user": "Agregando acceso a formularios para el usuario",
     "Are you sure you want to remove the form access for this user?": "¿Estás seguro de que deseas eliminar el acceso a formularios para este usuario?",
     "Following people have access to the listed forms": "Las siguientes personas tienen acceso a los formularios listados",
+    "Form access added successfully.": "Acceso al formulario agregado con éxito.",
+    "Form access removed successfully.": "Acceso al formulario eliminado con éxito.",
     "Form name": "Nombre del formulario",
+    "Invalid user ID or form ID.": "ID de usuario o ID de formulario no válido.",
     "No forms available": "No hay formularios disponibles",
     "Removing form access for user": "Eliminando acceso a formularios para el usuario",
     "Select a form": "Selecciona un formulario",
+    "User already has access to this form.": "El usuario ya tiene acceso a este formulario.",
     "You do not have access to any forms.": "No tienes acceso a ningún formulario."
   },
   "it": {
@@ -48,10 +64,14 @@
     "Adding form access for user": "Aggiunta accesso ai moduli per l'utente",
     "Are you sure you want to remove the form access for this user?": "Sei sicuro di voler rimuovere l'accesso ai moduli per questo utente?",
     "Following people have access to the listed forms": "Le seguenti persone hanno accesso ai moduli elencati",
+    "Form access added successfully.": "Accesso al modulo aggiunto con successo.",
+    "Form access removed successfully.": "Accesso al modulo rimosso con successo.",
     "Form name": "Nome del modulo",
+    "Invalid user ID or form ID.": "ID utente o ID modulo non valido.",
     "No forms available": "Nessun modulo disponibile",
     "Removing form access for user": "Rimozione accesso ai moduli per l'utente",
     "Select a form": "Seleziona un modulo",
+    "User already has access to this form.": "L'utente ha già accesso a questo modulo.",
     "You do not have access to any forms.": "Non hai accesso a nessun modulo."
   },
   "sv": {
@@ -59,10 +79,14 @@
     "Adding form access for user": "Lägger till formuläråtkomst för användare",
     "Are you sure you want to remove the form access for this user?": "Är du säker på att du vill ta bort formuläråtkomsten för denna användare?",
     "Following people have access to the listed forms": "Följande personer har åtkomst till de listade formulären",
+    "Form access added successfully.": "Formuläråtkomst tillagd framgångsrikt.",
+    "Form access removed successfully.": "Formuläråtkomst borttagen framgångsrikt.",
     "Form name": "Formulärnamn",
+    "Invalid user ID or form ID.": "Ogiltigt användar-ID eller formulär-ID.",
     "No forms available": "Inga formulär tillgängliga",
     "Removing form access for user": "Tar bort formuläråtkomst för användare",
     "Select a form": "Välj ett formulär",
+    "User already has access to this form.": "Användaren har redan åtkomst till detta formulär.",
     "You do not have access to any forms.": "Du har inte åtkomst till några formulär."
   }
 }

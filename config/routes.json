@@ -16,20 +16,38 @@
     },
     {
       "request": "GET",
+      "path": "/form-viewer/get/form-access",
+      "controller": "form_viewer\\FormViewerCrudController",
+      "method": "getFormAccess"
+    },
+    {
+      "request": "GET",
       "path": "/form-viewer/settings",
       "controller": "form_viewer\\FormViewerSettingsController",
       "method": "settings"
     },
     {
       "request": "POST",
+      "path": "/form-viewer/settings/add/form-access",
+      "controller": "form_viewer\\FormViewerCrudController",
+      "method": "addFormAccess"
+    },
+    {
+      "request": "POST",
       "path": "/form-viewer/settings/add/user-access",
-      "controller": "form_viewer\\FormViewerSettingsController",
+      "controller": "form_viewer\\FormViewerCrudController",
       "method": "addUserAccess"
     },
     {
       "request": "POST",
+      "path": "/form-viewer/settings/remove/form-access",
+      "controller": "form_viewer\\FormViewerCrudController",
+      "method": "removeFormAccess"
+    },
+    {
+      "request": "POST",
       "path": "/form-viewer/settings/remove/user-access",
-      "controller": "form_viewer\\FormViewerSettingsController",
+      "controller": "form_viewer\\FormViewerCrudController",
       "method": "removeUserAccess"
     },
     {

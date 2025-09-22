@@ -31,60 +31,6 @@ class FormViewerSettingsController
     }
 
     /**
-     * Add user access to form viewer settings
-     *
-     * @return void
-     */
-    #[NoReturn]
-    public function addUserAccess(): void
-    {
-        $formViewerSettings = FormViewerService::checkAccess();
-
-        if (isset($_POST['user_id']) && is_numeric($_POST['user_id'])) {
-            $accessArray = json_decode($formViewerSettings->_get('admin_access'), true);
-            if (!in_array($_POST['user_id'], $accessArray)) {
-                $accessArray[] = (int)$_POST['user_id'];
-                $formViewerSettings->_set('admin_access', json_encode($accessArray));
-                $_SESSION['success'] = __('User access added successfully.');
-            } else {
-                $_SESSION['error'] = __('User already has access.');
-            }
-        } else {
-            $_SESSION['error'] = __('Invalid user ID.');
-        }
-
-        TWIG->redirect('/form-viewer/settings');
-    }
-
-    /**
-     * Remove user access from form viewer settings
-     *
-     * @return void
-     */
-    #[NoReturn]
-    public function removeUserAccess(): void
-    {
-        $formViewerSettings = FormViewerService::checkAccess();
-
-        if (isset($_POST['RemoveUser']) && is_numeric($_POST['RemoveUser'])) {
-            $accessArray = json_decode($formViewerSettings->_get('admin_access'), true);
-            if (in_array($_POST['RemoveUser'], $accessArray)) {
-                $accessArray = array_filter($accessArray, function ($value) {
-                    return $value !== (int)$_POST['RemoveUser'];
-                });
-                $formViewerSettings->_set('admin_access', json_encode(array_values($accessArray)));
-                $_SESSION['success'] = __('User access removed successfully.');
-            } else {
-                $_SESSION['error'] = __('User does not have access.');
-            }
-        } else {
-            $_SESSION['error'] = __('Invalid user ID.');
-        }
-
-        TWIG->redirect('/form-viewer/settings');
-    }
-
-    /**
      * Render the settings view
      *
      * @return void

@@ -4,10 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.tigress.loadTranslations(language.translations)
         .then(function () {
 
-            let url = '/form-viewer/get/form-access/active';
-            if (variables.show === 'archive') {
-                url = '/form-viewer/get/form-access/inactive';
-            }
+            let url = '/form-viewer/get/form-access';
 
             const tableFormAccess = new DataTable('#dataTableFormAccess', {
                 processing: true,
@@ -31,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         data: null,
                         className: 'text-nowrap text-middle',
                         render: function (data, type, row) {
-                            return row.first_name + ' ' + row.last_name;
+                            return row.user_first_name + ' ' + row.user_last_name;
                         }
                     },
                     {
@@ -45,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         className: 'text-nowrap text-center text-middle',
                         render: function (data, type, row) {
                             let output = '';
-                            output += `<button type="button" class="btn btn-sm btn-danger open-modal" data-bs-toggle="modal" data-bs-target="#ModalRemoveFormAccess" data-id="{{ row.id }}" data-toggle="tooltip" title="{{ __('Deleting') }}"><i class="fa fa-fw fa-trash" aria-hidden="true"></i></button>`
+                            output += `<button type="button" class="btn btn-sm btn-danger open-modal" data-bs-toggle="modal" data-bs-target="#ModalRemoveFormAccess" data-id="${ row.id }" data-toggle="tooltip" title="${ __('Deleting') }"><i class="fa fa-fw fa-trash" aria-hidden="true"></i></button>`
                             return output;
                         }
                     }
@@ -58,16 +55,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            const modalDelete = document.getElementById('ModalFormsDelete');
-            modalDelete.addEventListener('show.bs.modal', function (event) {
+            const modalAddFormAccess = document.getElementById('ModalAddFormAccess');
+            modalAddFormAccess.addEventListener('show.bs.modal', function (event) {
                 const button = event.relatedTarget;
-                modalDelete.querySelector('#DeleteForm').value = button.getAttribute('data-id');
+                modalAddFormAccess.querySelector('#NewFormAccess').value = button.getAttribute('data-id');
             });
 
-            const modalRestore = document.getElementById('ModalFormsRestore');
-            modalRestore.addEventListener('show.bs.modal', function (event) {
+            const modalRemoveFormAccess = document.getElementById('ModalRemoveFormAccess');
+            modalRemoveFormAccess.addEventListener('show.bs.modal', function (event) {
                 const button = event.relatedTarget;
-                modalRestore.querySelector('#RestoreForm').value = button.getAttribute('data-id');
+                modalRemoveFormAccess.querySelector('#RemoveFormAccess').value = button.getAttribute('data-id');
             });
         })
 });
