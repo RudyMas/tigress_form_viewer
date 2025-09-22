@@ -1,4 +1,8 @@
 {% extends 'base.twig' %}
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ BASE_URL }}/vendor/tigress/menu/public/css/tiles.css">
+{% endblock %}
 {% block title %}{{ __('Forms') }}{% endblock %}
 {% block breadcrumb %}
     <div class="row mb-2">
@@ -15,7 +19,7 @@
 {% block content %}
     <div class="container">
         <div class="row mb-2">
-            <div class="col-sm-12">
+            <div class="col-md-12">
                 <h3>{{ __('Forms') }}
                     {% if (adminAccess) %}
                         <a class="btn btn-sm btn-outline-light" href="{{ BASE_URL }}/form-viewer/settings">
@@ -23,6 +27,11 @@
                         </a>
                     {% endif %}
                 </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>{{ content|raw }}</p>
             </div>
         </div>
     </div>

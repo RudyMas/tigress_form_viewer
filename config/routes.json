@@ -52,7 +52,7 @@
     },
     {
       "request": "GET",
-      "path": "/form-viewer/{group_name}",
+      "path": "/form-viewer/form/{form_id}",
       "controller": "form_viewer\\FormViewerController",
       "method": "index"
     }
