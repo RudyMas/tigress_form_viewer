@@ -52,9 +52,15 @@
     },
     {
       "request": "GET",
-      "path": "/form-viewer/form/{form_id}",
+      "path": "/form-viewer/forms/{form_id}",
       "controller": "form_viewer\\FormViewerController",
       "method": "index"
+    },
+    {
+      "request": "GET",
+      "path": "/form-viewer/forms/{form_id}/answers/{uniq_code}",
+      "controller": "form_viewer\\FormViewerController",
+      "method": "viewAnswer"
     }
   ]
 }

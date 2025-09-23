@@ -2,7 +2,6 @@
 
 namespace Controller\form_viewer;
 
-use JetBrains\PhpStorm\NoReturn;
 use Repository\FormsRepo;
 use Repository\UsersRepo;
 use Service\FormViewerService;
@@ -16,7 +15,7 @@ use Twig\Error\SyntaxError;
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
  * @license Proprietary
- * @version 2025.09.19.1
+ * @version 2025.09.23.0
  * @package Controller\form_viewer
  */
 class FormViewerSettingsController
@@ -40,7 +39,7 @@ class FormViewerSettingsController
      */
     public function settings(): void
     {
-        $formViewerSettings = FormViewerService::checkAccess();
+        $formViewerSettings = FormViewerService::checkAdminAccess();
 
         $accessArray = json_decode($formViewerSettings->_get('admin_access'), true);
 

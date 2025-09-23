@@ -11,6 +11,7 @@
     "No forms available": "Geen formulieren beschikbaar",
     "Removing form access for user": "Formulier toegang verwijderen voor gebruiker",
     "Select a form": "Selecteer een formulier",
+    "Submitted by": "Ingediend door",
     "User already has access to this form.": "Gebruiker heeft al toegang tot dit formulier.",
     "You do not have access to any forms.": "Je hebt geen toegang tot formulieren."
   },
@@ -26,6 +27,7 @@
     "No forms available": "Aucun formulaire disponible",
     "Removing form access for user": "Suppression de l'accès aux formulaires pour l'utilisateur",
     "Select a form": "Sélectionner un formulaire",
+    "Submitted by": "Soumis par",
     "User already has access to this form.": "L'utilisateur a déjà accès à ce formulaire.",
     "You do not have access to any forms.": "Vous n'avez accès à aucun formulaire."
   },
@@ -41,6 +43,7 @@
     "No forms available": "Keine Formulare verfügbar",
     "Removing form access for user": "Formularzugriff für Benutzer entfernen",
     "Select a form": "Wählen Sie ein Formular",
+    "Submitted by": "Eingereicht von",
     "User already has access to this form.": "Der Benutzer hat bereits Zugriff auf dieses Formular.",
     "You do not have access to any forms.": "Sie haben keinen Zugriff auf Formulare."
   },
@@ -56,6 +59,7 @@
     "No forms available": "No hay formularios disponibles",
     "Removing form access for user": "Eliminando acceso a formularios para el usuario",
     "Select a form": "Selecciona un formulario",
+    "Submitted by": "Enviado por",
     "User already has access to this form.": "El usuario ya tiene acceso a este formulario.",
     "You do not have access to any forms.": "No tienes acceso a ningún formulario."
   },
@@ -71,6 +75,7 @@
     "No forms available": "Nessun modulo disponibile",
     "Removing form access for user": "Rimozione accesso ai moduli per l'utente",
     "Select a form": "Seleziona un modulo",
+    "Submitted by": "Inviato da",
     "User already has access to this form.": "L'utente ha già accesso a questo modulo.",
     "You do not have access to any forms.": "Non hai accesso a nessun modulo."
   },
@@ -86,6 +91,7 @@
     "No forms available": "Inga formulär tillgängliga",
     "Removing form access for user": "Tar bort formuläråtkomst för användare",
     "Select a form": "Välj ett formulär",
+    "Submitted by": "Inlämnad av",
     "User already has access to this form.": "Användaren har redan åtkomst till detta formulär.",
     "You do not have access to any forms.": "Du har inte åtkomst till några formulär."
   }

@@ -1,0 +1,57 @@
+{% extends 'base.twig' %}
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ BASE_URL }}/vendor/tigress/form-viewer/public/css/form_viewer/answers_show.css">
+{% endblock %}
+{% block title %}{{ __('Forms') }} - {{ __('Overview') }} {{ __('Answers') }}{% endblock %}
+{% block breadcrumb %}
+    <div class="row mb-2">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb" data-bs-theme="{{ WEBSITE.mode }}">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ BASE_URL }}/"><i class="fa fa-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ BASE_URL }}/form-viewer">{{ __('Forms') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ BASE_URL }}/form-viewer/forms/{{ form.id }}">{{ __('Overview') }} - {{ form.name }}</a></li>
+                    <li class="breadcrumb-item active">{{ __('Answers') }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>{{ __('Answers') }}: {{ form.name }}</h1>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <fieldset class="printer-only">
+                    {% for formsSection in formsSections %}
+                        <fieldset class="no-break">
+                            <legend><h3>{{ formsSection.name }}</h3></legend>
+                            {% if formsSection.description %}
+                                <p><i>{{ formsSection.description|nl2br }}</i></p>
+                            {% endif %}
+                            <div class="row">
+                                {% for data in formsAnswers %}
+                                    {% if data.section__id == formsSection.id %}
+                                        <div class="col-md-12 mb-3">
+                                            <strong>{{ data.question__question }}</strong>
+                                            <div class="form-answer">
+                                                {% include 'forms/form_builder_elements_answers.twig' with {
+                                                    data: data,
+                                                } %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </fieldset>
+                    {% endfor %}
+                </fieldset>
+            </div>
+        </div>
+    </div>
+{% endblock %}
