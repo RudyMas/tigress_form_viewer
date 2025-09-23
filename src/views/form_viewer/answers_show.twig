@@ -38,7 +38,7 @@
                                 {% for data in formsAnswers %}
                                     {% if data.section__id == formsSection.id %}
                                         <div class="col-md-12 mb-3">
-                                            <strong>{{ data.question__question }}</strong>
+                                            <strong>{{ strip_dangerous_tags(data.question__question)|raw|nl2br }}</strong>
                                             <div class="form-answer">
                                                 {% include 'forms/form_builder_elements_answers.twig' with {
                                                     data: data,
