@@ -1,0 +1,36 @@
+{% extends 'pdf.twig' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>{{ __('Answers') }}: {{ form.name }}</h1>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                {% for formsSection in formsSections %}
+                    <div class="row mb-2" style="width: 98%; border: 1px solid black; padding: 0 10px">
+                        <h3>{{ formsSection.name }}</h3>
+                        {% if formsSection.description %}
+                            <p><i>{{ formsSection.description|nl2br }}</i></p>
+                        {% endif %}
+                        <div class="row">
+                            {% for data in formsAnswers %}
+                                {% if data.section__id == formsSection.id %}
+                                    <div class="col-md-12 mb-3">
+                                        <strong>{{ strip_dangerous_tags(data.question__question)|raw|nl2br }}</strong>
+                                        <div class="form-answer">
+                                            {% include 'forms/form_builder_elements_answers.twig' with {
+                                                data: data,
+                                            } %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

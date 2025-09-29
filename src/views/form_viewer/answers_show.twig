@@ -11,7 +11,9 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ BASE_URL }}/"><i class="fa fa-home"></i></a></li>
                     <li class="breadcrumb-item"><a href="{{ BASE_URL }}/form-viewer">{{ __('Forms') }}</a></li>
-                    <li class="breadcrumb-item"><a href="{{ BASE_URL }}/form-viewer/forms/{{ form.id }}">{{ __('Overview') }} - {{ form.name }}</a></li>
+                    <li class="breadcrumb-item"><a
+                                href="{{ BASE_URL }}/form-viewer/forms/{{ form.id }}">{{ __('Overview') }}
+                            - {{ form.name }}</a></li>
                     <li class="breadcrumb-item active">{{ __('Answers') }}</li>
                 </ol>
             </nav>
@@ -27,7 +29,15 @@
         </div>
         <div class="row mb-2">
             <div class="col-sm-12">
-                <fieldset class="printer-only">
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-12 text-end mb-2">
+                            <a href="/form-viewer/create/pdf/{{ form.id }}/answers/{{ uniq_code }}" title="PDF aanmaken"
+                               data-bs-toggle="tooltip" class="btn btn-danger" target="_blank">
+                                <i class="fa-regular fa-file-pdf"></i>
+                            </a>
+                        </div>
+                    </div>
                     {% for formsSection in formsSections %}
                         <fieldset class="no-break">
                             <legend><h3>{{ formsSection.name }}</h3></legend>
@@ -50,6 +60,14 @@
                             </div>
                         </fieldset>
                     {% endfor %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="/form-viewer/create/pdf/{{ form.id }}/answers/{{ uniq_code }}" title="PDF aanmaken"
+                               data-bs-toggle="tooltip" class="btn btn-danger" target="_blank">
+                                <i class="fa-regular fa-file-pdf"></i>
+                            </a>
+                        </div>
+                    </div>
                 </fieldset>
             </div>
         </div>

@@ -21,7 +21,7 @@ use Twig\Error\SyntaxError;
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
  * @license Proprietary
- * @version 2025.09.23.0
+ * @version 2025.09.29.0
  * @package Controller\form_viewer
  */
 class FormViewerController extends Controller
@@ -85,6 +85,25 @@ class FormViewerController extends Controller
     }
 
     /**
+     * Create a PDF of the answers
+     *
+     * @param array $args
+     * @return void
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function createPDF(array $args): void
+    {
+        $data = $this->getFormAnswers($args);
+
+        TWIG->render('form_viewer/createPDF.tpdf', $data, 'PDF', 200, [
+            'attachment' => SYSTEM->debug,
+            'filename' => $data['form']->name . '_' . $args['uniq_code'] . '.pdf',
+        ]);
+    }
+
+    /**
      * Render the menu view
      *
      * @throws SyntaxError
@@ -133,7 +152,32 @@ class FormViewerController extends Controller
         ]);
     }
 
+    /**
+     * Render the answer view
+     *
+     * @throws SyntaxError
+     * @throws RuntimeError
+     * @throws LoaderError
+     */
     public function viewAnswer(array $args): void
+    {
+        $data = $this->getFormAnswers($args);
+
+        TWIG->render('form_viewer/answers_show.twig', [
+            'form' => $data['form'],
+            'formsAnswers' => $data['formsAnswers'],
+            'formsSections' => $data['formsSections'],
+            'uniq_code' => $args['uniq_code'],
+        ]);
+    }
+
+    /**
+     * Get the form answers
+     *
+     * @param array $args
+     * @return array
+     */
+    public function getFormAnswers(array $args): array
     {
         $formViewerSettings = FormViewerService::checkAccess();
         $adminAccess = $formViewerSettings->_hasAccess('admin_access', $_SESSION['user']['id']);
@@ -191,10 +235,10 @@ class FormViewerController extends Controller
             $allAnswers = $formsAnswers->getAnswersByUniqCode($args['uniq_code']);
         }
 
-        TWIG->render('form_viewer/answers_show.twig', [
+        return [
             'form' => $form,
             'formsAnswers' => $allAnswers,
             'formsSections' => $formsSections,
-        ]);
+        ];
     }
 }

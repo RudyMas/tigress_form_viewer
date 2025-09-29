@@ -16,6 +16,12 @@
     },
     {
       "request": "GET",
+      "path": "/form-viewer/create/pdf/{form_id}/answers/{uniq_code}",
+      "controller": "form_viewer\\FormViewerController",
+      "method": "createPDF"
+    },
+    {
+      "request": "GET",
       "path": "/form-viewer/get/form-access",
       "controller": "form_viewer\\FormViewerCrudController",
       "method": "getFormAccess"
