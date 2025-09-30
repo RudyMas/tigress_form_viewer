@@ -117,7 +117,7 @@ class FormViewerController extends Controller
 
         if ($adminAccess) {
             $forms = new FormsRepo();
-            $forms->loadAllActive();
+            $forms->loadAllActive('name');
         } else {
             $formViewerFromAccess = new FormViewerFormAccessRepo();
             $formViewerFromAccess->loadByWhere(['user_id' => $_SESSION['user']['id']]);
@@ -129,7 +129,7 @@ class FormViewerController extends Controller
             }
 
             $forms = new FormsRepo();
-            $forms->loadByWhereQuery('id IN (' . implode(',', $formIds) . ')');
+            $forms->loadByWhereQuery('id IN (' . implode(',', $formIds) . ')', [], 'name');
         }
 
         $menu['tiles'] = [];
