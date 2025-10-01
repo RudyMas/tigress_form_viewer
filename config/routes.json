@@ -22,9 +22,27 @@
     },
     {
       "request": "GET",
+      "path": "/form-viewer/forms/{form_id}",
+      "controller": "form_viewer\\FormViewerController",
+      "method": "index"
+    },
+    {
+      "request": "GET",
+      "path": "/form-viewer/forms/{form_id}/answers/{uniq_code}",
+      "controller": "form_viewer\\FormViewerController",
+      "method": "viewAnswer"
+    },
+    {
+      "request": "GET",
       "path": "/form-viewer/get/form-access",
       "controller": "form_viewer\\FormViewerCrudController",
       "method": "getFormAccess"
+    },
+    {
+      "request": "GET",
+      "path": "/form-viewer/qr/{id}",
+      "controller": "form_viewer\\FormViewerController",
+      "method": "showQr"
     },
     {
       "request": "GET",
@@ -55,18 +73,6 @@
       "path": "/form-viewer/settings/remove/user-access",
       "controller": "form_viewer\\FormViewerCrudController",
       "method": "removeUserAccess"
-    },
-    {
-      "request": "GET",
-      "path": "/form-viewer/forms/{form_id}",
-      "controller": "form_viewer\\FormViewerController",
-      "method": "index"
-    },
-    {
-      "request": "GET",
-      "path": "/form-viewer/forms/{form_id}/answers/{uniq_code}",
-      "controller": "form_viewer\\FormViewerController",
-      "method": "viewAnswer"
     }
   ]
 }

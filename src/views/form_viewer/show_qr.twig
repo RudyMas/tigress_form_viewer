@@ -1,0 +1,35 @@
+{% extends 'base.twig' %}
+{% block title %}{{ __('Forms') }} - {{ __('QR code') }}{% endblock %}
+{% block breadcrumb %}
+    <div class="row mb-2">
+        <div class="col-sm-12">
+            <nav aria-label="breadcrumb" data-bs-theme="{{ WEBSITE.mode }}">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ BASE_URL }}/"><i class="fa fa-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ BASE_URL }}/form-viewer">{{ __('Forms') }}</a></li>
+                    <li class="breadcrumb-item"><a
+                                href="{{ BASE_URL }}/form-viewer/forms/{{ form.id }}">{{ __('Overview') }}
+                            - {{ form.name }}</a></li>
+                    <li class="breadcrumb-item active">{{ __('QR code') }}: {{ form.name }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <h3>QR-code: {{ form.name }}</h3>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-sm-12">
+                <fieldset class="text-center">
+                    <p>{{ url }}</p>
+                    <p><img src="{{ qrImage }}" alt="QR Code" class="img-fluid"></p>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+{% endblock %}

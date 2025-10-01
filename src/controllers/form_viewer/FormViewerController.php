@@ -2,6 +2,7 @@
 
 namespace Controller\form_viewer;
 
+use chillerlan\QRCode\Common\EccLevel;
 use Controller\TilesOnly;
 use Repository\FormsAnswersRepo;
 use Repository\FormsQuestionsRepo;
@@ -11,6 +12,7 @@ use Repository\FormViewerFormAccessRepo;
 use Service\FormViewerService;
 use stdClass;
 use Tigress\Controller;
+use Tigress\QrCodeGenerator;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -21,7 +23,7 @@ use Twig\Error\SyntaxError;
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
  * @license Proprietary
- * @version 2025.09.29.0
+ * @version 2025.10.01.0
  * @package Controller\form_viewer
  */
 class FormViewerController extends Controller
@@ -36,6 +38,15 @@ class FormViewerController extends Controller
         TRANSLATIONS->load(SYSTEM_ROOT . '/vendor/tigress/form-viewer/translations/translations.json');
     }
 
+    /**
+     * Overview of the answers for a form
+     *
+     * @param array $args
+     * @return void
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
     public function index(array $args): void
     {
         $formViewerSettings = FormViewerService::checkAccess();
@@ -149,6 +160,47 @@ class FormViewerController extends Controller
         TWIG->render('form_viewer/menu.twig', [
             'adminAccess' => $adminAccess,
             'content' => $tiles->createTiles(json_encode($menu)),
+        ]);
+    }
+
+    /**
+     * Show the QR code for the form
+     *
+     * @param array $args
+     * @return void
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function showQr(array $args): void
+    {
+        $forms = new FormsRepo();
+        $forms->loadById($args['id']);
+        $form = $forms->current();
+
+        $url = 'https://gunax.go-next.be/form/' . $form->form_reference;
+
+        $qrCodeDir = SYSTEM_ROOT . '/public/images/forms/qr-code';
+        if (!is_dir($qrCodeDir)) {
+            mkdir($qrCodeDir, 0755, true);
+        }
+
+        $qr = new QrCodeGenerator([
+            'addLogoSpace' => true,
+            'eccLevel' => EccLevel::H,
+            'logoSpaceWidth' => 16,
+        ]);
+
+        $image = $qr->renderWithLogo(
+            $url,
+            SYSTEM_ROOT . '/public/images/GoNext_black.png',
+            $qrCodeDir . '/' . $form->form_reference . '_logo.png'
+        );
+
+        TWIG->render('form_viewer/show_qr.twig', [
+            'form' => $form,
+            'url' => $url,
+            'qrImage' => $image,
         ]);
     }
 
