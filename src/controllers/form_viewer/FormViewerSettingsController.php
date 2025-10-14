@@ -10,7 +10,7 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class FormViewerController
+ * Class FormViewerSettingsController (PHP version 8.4)
  *
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)

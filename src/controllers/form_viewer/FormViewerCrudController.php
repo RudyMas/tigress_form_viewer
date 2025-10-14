@@ -3,11 +3,8 @@
 namespace Controller\form_viewer;
 
 use JetBrains\PhpStorm\NoReturn;
-use Repository\FormsRepo;
 use Repository\FormViewerFormAccessRepo;
-use Repository\UsersRepo;
 use Service\FormViewerService;
-use Tigress\Core;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -40,7 +37,7 @@ class FormViewerCrudController
     #[NoReturn]
     public function addFormAccess(): void
     {
-        $formViewerSettings = FormViewerService::checkAccess();
+        FormViewerService::checkAccess();
 
         if (isset($_POST['user_id'], $_POST['form_id']) && is_numeric($_POST['user_id']) && is_numeric($_POST['form_id'])) {
             $formViewerFormAccess = new FormViewerFormAccessRepo();
