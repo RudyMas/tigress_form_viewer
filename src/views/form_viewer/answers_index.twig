@@ -53,4 +53,28 @@
             </div>
         </div>
     </div>
+
+    {# Modal Delete Form #}
+    <form action="{{ BASE_URL }}/form-viewer/forms/delete/answers" method="post" enctype="multipart/form-data">
+        <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel"
+             aria-hidden="true" style="color: black">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalDeleteLabel">{{ __('Removing form answers') }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ __('Close') }}"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ __('Are you sure you want to delete the answers for this form?') }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="id" id="id">
+                        <input type="hidden" name="form_id" value="{{ form.id }}">
+                        <button type="submit" class="btn btn-success" id="btnArchiveren">{{ __('Delete') }}</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ __('Cancel') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 {% endblock %}

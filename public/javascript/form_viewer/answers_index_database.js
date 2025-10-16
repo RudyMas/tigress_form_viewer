@@ -15,4 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
             initTooltips();
         }
     });
+
+    const modalDelete = document.getElementById('modalDelete');
+    if (modalDelete) {
+        modalDelete.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            modalDelete.querySelector('#id').value = button.getAttribute('data-id');
+        });
+    }
 });

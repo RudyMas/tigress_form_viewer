@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         if (variables.read) {
                             output += ` <a data-bs-toggle="tooltip" title="${__('View')}" href="/form-viewer/forms/${variables.formId}/answers/${row.uniq_code}" class="btn btn-sm btn-info"><i class="fa fa-eye"></i></a>`;
                         }
+                        if (variables.delete) {
+                            output += ` <button title="${__('Delete')}" type="button" class="btn btn-sm btn-danger open-modal" data-bs-toggle="modal" data-bs-target="#modalDelete" data-id="${row.uniq_code}"><i class="fa-solid fa-trash-can" aria-hidden="true"></i></button>`;
+                        }
                         return output;
                     }
                 }
@@ -72,4 +75,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    const modalDelete = document.getElementById('modalDelete');
+    if (modalDelete) {
+        modalDelete.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            modalDelete.querySelector('#id').value = button.getAttribute('data-id');
+        });
+    }
 });

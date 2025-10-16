@@ -23,7 +23,7 @@ use Twig\Error\SyntaxError;
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
  * @license Proprietary
- * @version 2025.10.01.0
+ * @version 2025.10.16.0
  * @package Controller\form_viewer
  */
 class FormViewerController extends Controller
@@ -69,7 +69,7 @@ class FormViewerController extends Controller
             $repositoryClass = 'Repository\\' . $this->tableNameToClass($form->db_table);
             if (class_exists($repositoryClass)) {
                 $formsAnswers = new $repositoryClass();
-                $formsAnswers->loadAll();
+                $formsAnswers->loadAllActive();
 
                 $fields = $formsAnswers->getFields();
                 unset($fields['created_user_id']);

@@ -3,8 +3,10 @@
 namespace Controller\form_viewer;
 
 use JetBrains\PhpStorm\NoReturn;
+use Repository\FormsAnswersRepo;
 use Repository\FormViewerFormAccessRepo;
 use Service\FormViewerService;
+use Tigress\Controller;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -15,10 +17,10 @@ use Twig\Error\SyntaxError;
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
  * @license Proprietary
- * @version 2025.09.22.0
+ * @version 2025.10.16.0
  * @package Controller\form_viewer
  */
-class FormViewerCrudController
+class FormViewerCrudController extends Controller
 {
     /**
      * @throws LoaderError
@@ -86,6 +88,35 @@ class FormViewerCrudController
         }
 
         TWIG->redirect('/form-viewer/settings');
+    }
+
+    /**
+     * Delete answers by uniq_code
+     *
+     * @return void
+     */
+    #[NoReturn]
+    public function deleteAnswers(): void
+    {
+        $formsAnswers = new FormsAnswersRepo();
+        $formsAnswers->deleteByField('uniq_code', $_POST['id']);
+        TWIG->redirect("/form-viewer/forms/{$_POST['form_id']}");
+    }
+
+    /**
+     * Delete answers by database ID
+     *
+     * @return void
+     */
+    #[NoReturn]
+    public function deleteAnswersDatabase(): void
+    {
+        $repositoryClass = 'Repository\\' . $this->tableNameToClass($_POST['db_table']);
+        if (class_exists($repositoryClass)) {
+            $formsAnswers = new $repositoryClass();
+            $formsAnswers->deleteById((int)$_POST['id']);
+        }
+        TWIG->redirect("/form-viewer/forms/{$_POST['form_id']}");
     }
 
     /**

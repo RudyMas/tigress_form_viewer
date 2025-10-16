@@ -21,6 +21,18 @@
       "method": "createPDF"
     },
     {
+      "request": "POST",
+      "path": "/form-viewer/forms/database/delete/answers",
+      "controller": "form_viewer\\FormViewerCrudController",
+      "method": "deleteAnswersDatabase"
+    },
+    {
+      "request": "POST",
+      "path": "/form-viewer/forms/delete/answers",
+      "controller": "form_viewer\\FormViewerCrudController",
+      "method": "deleteAnswers"
+    },
+    {
       "request": "GET",
       "path": "/form-viewer/forms/{form_id}",
       "controller": "form_viewer\\FormViewerController",
