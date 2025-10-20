@@ -4,15 +4,7 @@
       "request": "GET",
       "path": "/form-viewer",
       "controller": "form_viewer\\FormViewerController",
-      "method": "menu",
-      "level_rights": [
-        10,
-        20,
-        90,
-        95
-      ],
-      "special_rights": "form-viewer",
-      "special_rights_default": []
+      "method": "menu"
     },
     {
       "request": "GET",

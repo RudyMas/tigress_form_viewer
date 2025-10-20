@@ -135,7 +135,7 @@ class FormViewerController extends Controller
             $formIds = array_map(fn($item) => $item['form_id'], $formViewerFromAccess->toArray());
 
             if (empty($formIds)) {
-                $_SESSION['warning'] = __('No forms available');
+                $_SESSION['warning'] = __('No forms available! Contact the administrator for more information.');
                 TWIG->redirect('/home');
             }
 
