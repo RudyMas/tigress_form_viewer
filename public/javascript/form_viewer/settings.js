@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         className: 'text-nowrap text-center text-middle',
                         render: function (data, type, row) {
                             let output = '';
-                            output += `<button type="button" class="btn btn-sm btn-danger open-modal" data-bs-toggle="modal" data-bs-target="#ModalRemoveFormAccess" data-id="${ row.id }" data-toggle="tooltip" title="${ __('Deleting') }"><i class="fa fa-fw fa-trash" aria-hidden="true"></i></button>`
+                            output += `<button type="button" class="btn btn-sm btn-danger open-modal" data-bs-toggle="modal" data-bs-target="#ModalRemoveFormAccess" data-id="${ row.id }" data-toggle="tooltip" title="${ __('Deleting') }"><i class="fa fa-fw fa-trash-can" aria-hidden="true"></i></button>`
                             return output;
                         }
                     }
