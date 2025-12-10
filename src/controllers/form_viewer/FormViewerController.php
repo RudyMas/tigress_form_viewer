@@ -23,7 +23,7 @@ use Twig\Error\SyntaxError;
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
  * @license Proprietary
- * @version 2025.12.10.0
+ * @version 2025.12.10.1
  * @package Controller\form_viewer
  */
 class FormViewerController extends Controller
@@ -129,7 +129,7 @@ class FormViewerController extends Controller
         $forms->loadById($args['id']);
         $form = $forms->current();
 
-        $url = 'https://gunax.go-next.be/form/' . $form->form_reference_external;
+        $url = 'https://gunax.go-next.be/form/external/' . $form->form_reference_external;
 
         $qrCodeDir = SYSTEM_ROOT . '/public/images/forms/qr-code';
         if (!is_dir($qrCodeDir)) {
