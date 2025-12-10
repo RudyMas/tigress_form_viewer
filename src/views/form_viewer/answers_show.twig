@@ -1,8 +1,4 @@
 {% extends 'base.twig' %}
-{% block css %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ BASE_URL }}/vendor/tigress/form-viewer/public/css/form_viewer/answers_show.css">
-{% endblock %}
 {% block title %}{{ __('Forms') }} - {{ __('Overview') }} {{ __('Answers') }}{% endblock %}
 {% block breadcrumb %}
     <div class="row mb-2">
