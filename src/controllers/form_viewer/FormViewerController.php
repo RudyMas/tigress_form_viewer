@@ -23,7 +23,7 @@ use Twig\Error\SyntaxError;
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
  * @license Proprietary
- * @version 2025.10.16.0
+ * @version 2025.12.10.0
  * @package Controller\form_viewer
  */
 class FormViewerController extends Controller
@@ -115,6 +115,48 @@ class FormViewerController extends Controller
     }
 
     /**
+     * Show the External QR code for the form
+     *
+     * @param array $args
+     * @return void
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function showExternalQr(array $args): void
+    {
+        $forms = new FormsRepo();
+        $forms->loadById($args['id']);
+        $form = $forms->current();
+
+        $url = 'https://gunax.go-next.be/form/' . $form->form_reference_external;
+
+        $qrCodeDir = SYSTEM_ROOT . '/public/images/forms/qr-code';
+        if (!is_dir($qrCodeDir)) {
+            mkdir($qrCodeDir, 0755, true);
+        }
+
+        $qr = new QrCodeGenerator([
+            'addLogoSpace' => true,
+            'eccLevel' => EccLevel::H,
+            'logoSpaceWidth' => 16,
+        ]);
+
+        $image = $qr->renderWithLogo(
+            $url,
+            SYSTEM_ROOT . '/public/images/GoNext_black.png',
+            $qrCodeDir . '/' . $form->form_reference_external . '_logo.png'
+        );
+
+        TWIG->render('form_viewer/show_qr.twig', [
+            'form' => $form,
+            'url' => $url,
+            'qrImage' => $image,
+            'external' => __('External QR-code'),
+        ]);
+    }
+
+    /**
      * Render the menu view
      *
      * @throws SyntaxError
@@ -201,6 +243,7 @@ class FormViewerController extends Controller
             'form' => $form,
             'url' => $url,
             'qrImage' => $image,
+            'external' => __('QR-code'),
         ]);
     }
 

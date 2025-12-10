@@ -50,6 +50,12 @@
     },
     {
       "request": "GET",
+      "path": "/form-viewer/external-qr/{id}",
+      "controller": "form_viewer\\FormViewerController",
+      "method": "showExternalQr"
+    },
+    {
+      "request": "GET",
       "path": "/form-viewer/settings",
       "controller": "form_viewer\\FormViewerSettingsController",
       "method": "settings"
