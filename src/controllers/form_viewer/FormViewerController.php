@@ -50,7 +50,7 @@ class FormViewerController extends Controller
     public function index(array $args): void
     {
         $formViewerSettings = FormViewerService::checkAccess();
-        $adminAccess = $formViewerSettings->_hasAccess('admin_access', $_SESSION['user']['id']);
+        $adminAccess = $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id']);
 
         $formViewerFromAccess = new FormViewerFormAccessRepo();
         $formViewerFromAccess->loadByWhere(['user_id' => $_SESSION['user']['id']]);
@@ -166,7 +166,7 @@ class FormViewerController extends Controller
     public function menu(): void
     {
         $formViewerSettings = FormViewerService::checkAccess();
-        $adminAccess = $formViewerSettings->_hasAccess('admin_access', $_SESSION['user']['id']);
+        $adminAccess = $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id']);
 
         if ($adminAccess) {
             $forms = new FormsRepo();
@@ -275,7 +275,7 @@ class FormViewerController extends Controller
     public function getFormAnswers(array $args): array
     {
         $formViewerSettings = FormViewerService::checkAccess();
-        $adminAccess = $formViewerSettings->_hasAccess('admin_access', $_SESSION['user']['id']);
+        $adminAccess = $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id']);
 
         $formViewerFromAccess = new FormViewerFormAccessRepo();
         $formViewerFromAccess->loadByWhere(['user_id' => $_SESSION['user']['id']]);

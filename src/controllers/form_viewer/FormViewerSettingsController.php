@@ -41,7 +41,7 @@ class FormViewerSettingsController
     {
         $formViewerSettings = FormViewerService::checkAdminAccess();
 
-        $accessArray = json_decode($formViewerSettings->_get('admin_access'), true);
+        $accessArray = json_decode($formViewerSettings->_get('access_settings'), true);
 
         $users = new UsersRepo();
         $users->loadAllActive('first_name, last_name');
@@ -55,7 +55,7 @@ class FormViewerSettingsController
 
         TWIG->render('form_viewer/settings.twig', [
             'accessArray' => $accessArray ?: [],
-            'adminAccess' => $formViewerSettings->_hasAccess('admin_access', $_SESSION['user']['id']),
+            'adminAccess' => $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id']),
             'allForms' => $forms,
             "allUsers" => $users,
             'usersAccess' => $usersAccess,
