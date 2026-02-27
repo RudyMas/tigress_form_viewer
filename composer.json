@@ -16,9 +16,9 @@
     "php": ">=8.5"
   },
   "require-dev": {
-    "tigress/core": "^2025",
-    "tigress/form-builder": "^2025",
-    "tigress/users": "^2025"
+    "tigress/core": "*",
+    "tigress/form-builder": "*",
+    "tigress/users": "*"
   },
   "autoload": {
     "psr-4": {
