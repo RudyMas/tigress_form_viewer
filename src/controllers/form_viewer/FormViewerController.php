@@ -23,7 +23,7 @@ use Twig\Error\SyntaxError;
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
  * @license Proprietary
- * @version 2025.12.10.1
+ * @version 2026.03.13.0
  * @package Controller\form_viewer
  */
 class FormViewerController extends Controller
@@ -50,7 +50,7 @@ class FormViewerController extends Controller
     public function index(array $args): void
     {
         $formViewerSettings = FormViewerService::checkAccess();
-        $adminAccess = $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id']);
+        $adminAccess = $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id'], ($_SESSION['user']['access_level'] === 100));
 
         $formViewerFromAccess = new FormViewerFormAccessRepo();
         $formViewerFromAccess->loadByWhere(['user_id' => $_SESSION['user']['id']]);
@@ -166,7 +166,7 @@ class FormViewerController extends Controller
     public function menu(): void
     {
         $formViewerSettings = FormViewerService::checkAccess();
-        $adminAccess = $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id']);
+        $adminAccess = $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id'], ($_SESSION['user']['access_level'] === 100));
 
         if ($adminAccess) {
             $forms = new FormsRepo();
@@ -275,7 +275,7 @@ class FormViewerController extends Controller
     public function getFormAnswers(array $args): array
     {
         $formViewerSettings = FormViewerService::checkAccess();
-        $adminAccess = $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id']);
+        $adminAccess = $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id'], ($_SESSION['user']['access_level'] === 100));
 
         $formViewerFromAccess = new FormViewerFormAccessRepo();
         $formViewerFromAccess->loadByWhere(['user_id' => $_SESSION['user']['id']]);

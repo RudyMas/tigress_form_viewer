@@ -15,7 +15,7 @@ use Twig\Error\SyntaxError;
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
  * @license Proprietary
- * @version 2025.09.23.0
+ * @version 2026.03.13.0
  * @package Controller\form_viewer
  */
 class FormViewerSettingsController
@@ -55,7 +55,7 @@ class FormViewerSettingsController
 
         TWIG->render('form_viewer/settings.twig', [
             'accessArray' => $accessArray ?: [],
-            'adminAccess' => $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id']),
+            'adminAccess' => $formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id'], ($_SESSION['user']['access_level'] === 100)),
             'allForms' => $forms,
             "allUsers" => $users,
             'usersAccess' => $usersAccess,

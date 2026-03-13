@@ -40,7 +40,7 @@ class FormViewerService
         $formViewerSettings = new FormViewerSettingsRepo();
         $formViewerSettings->_loadAll();
 
-        if (!$formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id'])) {
+        if (!$formViewerSettings->_hasAccess('access_settings', $_SESSION['user']['id'], ($_SESSION['user']['access_level'] === 100))) {
             $_SESSION['error'] = __('You do not have the necessary rights to view this page.');
             TWIG->redirect('/login');
         };
