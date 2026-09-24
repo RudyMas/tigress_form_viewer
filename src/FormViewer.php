@@ -9,14 +9,14 @@ use Twig\Error\LoaderError;
  *
  * @author Rudy Mas <rudy.mas@rudymas.be>
  * @copyright 2025 Rudy Mas (https://rudymas.be)
- * @license https://opensource.org/licenses/GPL-3.0 GNU General Public License, version 3 (GPL-3.0)
+ * @license Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
  * @version 2026.03.13.1
  * @package Tigress\FormViewer
  */
 class FormViewer
 {
     /**
-     * Get the version of the DisplayHelper
+     * Get the version of the FormViewer
      *
      * @return string
      */

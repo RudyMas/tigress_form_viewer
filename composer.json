@@ -2,7 +2,7 @@
   "name": "tigress/form-viewer",
   "description": "Tigress Form Viewer library for Form Builder module",
   "type": "library",
-  "license": "GPL-3.0-or-later",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "Rudy Mas",

@@ -6,6 +6,7 @@ use JetBrains\PhpStorm\NoReturn;
 use Repository\FormsAnswersRepo;
 use Repository\FormViewerFormAccessRepo;
 use Service\FormViewerService;
+use Throwable;
 use Tigress\Controller;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -16,7 +17,7 @@ use Twig\Error\SyntaxError;
  *
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
- * @license Proprietary
+ * @license Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
  * @version 2025.10.16.0
  * @package Controller\form_viewer
  */
@@ -35,6 +36,7 @@ class FormViewerCrudController extends Controller
      * Add user access to a specific form
      *
      * @return void
+     * @throws Throwable
      */
     #[NoReturn]
     public function addFormAccess(): void

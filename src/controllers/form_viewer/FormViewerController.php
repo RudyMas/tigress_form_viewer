@@ -22,7 +22,7 @@ use Twig\Error\SyntaxError;
  *
  * @author Rudy Mas <rudy.mas@go-next.be>
  * @copyright 2025 GO! Next (https://www.go-next.be)
- * @license Proprietary
+ * @license Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
  * @version 2026.03.13.0
  * @package Controller\form_viewer
  */
