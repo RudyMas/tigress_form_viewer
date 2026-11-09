@@ -30,7 +30,7 @@
                         <fieldset class="no-break">
                             <legend><h3>{{ formsSection.name }}</h3></legend>
                             {% if formsSection.description %}
-                                <p><i>{{ formsSection.description|nl2br }}</i></p>
+                                <p><i>{{ formsSection.description|raw|nl2br }}</i></p>
                             {% endif %}
                             <div class="row">
                                 {% for data in formsAnswers %}
